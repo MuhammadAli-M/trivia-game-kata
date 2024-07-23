@@ -11,3 +11,11 @@ class TestGame(TestCase):
         game.add("Muhammad")
 
         self.assertEqual(game.how_many_players, 1)
+
+    def test_add_two_players_append_two_players(self):
+        game = Game()
+
+        game.add("Muhammad")
+        game.add("Adam")
+
+        self.assertEqual(game.how_many_players, 2)
