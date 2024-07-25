@@ -71,10 +71,11 @@ class Game:
               str(self.places[player]))
 
     def _ask_question(self):
-        if self._get_category(self.current_player) == 'Pop': print(self.pop_questions.pop(0))
-        if self._get_category(self.current_player) == 'Science': print(self.science_questions.pop(0))
-        if self._get_category(self.current_player) == 'Sports': print(self.sports_questions.pop(0))
-        if self._get_category(self.current_player) == 'Rock': print(self.rock_questions.pop(0))
+        category = self._get_category(self.current_player)
+        if category == 'Pop': print(self.pop_questions.pop(0))
+        if category == 'Science': print(self.science_questions.pop(0))
+        if category == 'Sports': print(self.sports_questions.pop(0))
+        if category == 'Rock': print(self.rock_questions.pop(0))
 
     def _get_category(self, player):
         if self.places[player] == 0: return 'Pop'
