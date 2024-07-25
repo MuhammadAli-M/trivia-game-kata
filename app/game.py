@@ -115,10 +115,8 @@ class Game:
 
     def reward_winner(self, current_player):
         self.purses[current_player] += 1
-        print(self.players[current_player] + \
-              ' now has ' + \
-              str(self.purses[current_player]) + \
-              ' Gold Coins.')
+        print(self.players[current_player] + ' now has ' + \
+              str(self.purses[current_player]) + ' Gold Coins.')
 
     def _switch_to_next_player(self, players_count):
         self.current_player = self.current_player + 1
