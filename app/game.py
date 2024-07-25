@@ -51,7 +51,6 @@ class Game:
             self._update_getting_out_of_penalty(is_even_roll)
             if not is_even_roll:
                 self.apply_roll(roll, self.current_player)
-
             return
 
         self.apply_roll(roll, self.current_player)
