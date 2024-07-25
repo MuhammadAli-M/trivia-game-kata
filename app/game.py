@@ -107,11 +107,7 @@ class Game:
             else:
                 self._switch_to_next_player(len(self.players))
                 return True
-
-
-
         else:
-
             print("Answer was corrent!!!!")
             return self.handle_correct_answer()
 
