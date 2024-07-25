@@ -56,8 +56,9 @@ class Game:
 
                 print("%s is getting out of the penalty box" % self.players[self.current_player])
                 self.apply_roll(roll, self.current_player)
-        else:
-            self.apply_roll(roll, self.current_player)
+            return
+
+        self.apply_roll(roll, self.current_player)
 
     def is_current_player_in_penalty(self):
         return self.is_player_in_penalty(self.current_player)
