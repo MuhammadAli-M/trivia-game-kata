@@ -56,7 +56,7 @@ class Game:
                     self.current_player])
                 self.is_getting_out_of_penalty_box = True
 
-            if is_even_roll == False:
+            if not is_even_roll:
                 self.apply_roll(roll, self.current_player)
 
             return
