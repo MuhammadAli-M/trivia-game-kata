@@ -52,10 +52,13 @@ class Game:
                 print("%s is not getting out of the penalty box" % self.players[self.current_player])
                 self.is_getting_out_of_penalty_box = False
             else:
+                print("%s is getting out of the penalty box" % self.players[
+                    self.current_player])
                 self.is_getting_out_of_penalty_box = True
 
-                print("%s is getting out of the penalty box" % self.players[self.current_player])
+            if is_even_roll == False:
                 self.apply_roll(roll, self.current_player)
+
             return
 
         self.apply_roll(roll, self.current_player)
