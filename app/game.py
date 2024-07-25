@@ -51,26 +51,23 @@ class Game:
                 self.is_getting_out_of_penalty_box = True
 
                 print("%s is getting out of the penalty box" % self.players[self.current_player])
-                self.move_current_player(roll)
+                self.move_current_player(roll, self.current_player)
                 print("The category is %s" % self._current_category)
                 self._ask_question()
             else:
                 print("%s is not getting out of the penalty box" % self.players[self.current_player])
                 self.is_getting_out_of_penalty_box = False
         else:
-            self.move_current_player(roll)
+            self.move_current_player(roll, self.current_player)
             print("The category is %s" % self._current_category)
             self._ask_question()
 
-    def move_current_player(self, roll):
-        self.places[self.current_player] = self.places[
-                                               self.current_player] + roll
-        if self.places[self.current_player] > 11:
-            self.places[self.current_player] = self.places[
-                                                   self.current_player] - 12
-        print(self.players[self.current_player] + \
-              '\'s new location is ' + \
-              str(self.places[self.current_player]))
+    def move_current_player(self, roll, player):
+        self.places[player] = self.places[player] + roll
+        if self.places[player] > 11:
+            self.places[player] = self.places[player] - 12
+        print(self.players[player] + '\'s new location is ' + \
+              str(self.places[player]))
 
     def _ask_question(self):
         if self._current_category == 'Pop': print(self.pop_questions.pop(0))
