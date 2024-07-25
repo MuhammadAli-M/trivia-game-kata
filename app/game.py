@@ -136,7 +136,7 @@ class Game:
               ' Gold Coins.')
 
     def _switch_to_next_player(self, players_count):
-        self.current_player += 1
+        self.current_player = self.current_player + 1
         if self.current_player == players_count: self.current_player = 0
 
     def wrong_answer(self):
