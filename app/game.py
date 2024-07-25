@@ -103,9 +103,7 @@ class Game:
         if self.is_current_player_in_penalty():
             if self.is_getting_out_of_penalty_box:
                 print('Answer was correct!!!!')
-                winner = self.handle_correct_answer()
-
-                return winner
+                return self.handle_correct_answer()
             else:
                 self._switch_to_next_player(len(self.players))
                 return True
