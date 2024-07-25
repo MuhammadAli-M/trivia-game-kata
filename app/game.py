@@ -113,9 +113,7 @@ class Game:
         else:
 
             print("Answer was corrent!!!!")
-            winner = self.handle_correct_answer()
-
-            return winner
+            return self.handle_correct_answer()
 
     def handle_correct_answer(self):
         self.reward_winner(self.current_player)
