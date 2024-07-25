@@ -61,7 +61,7 @@ class Game:
     def apply_roll(self, roll):
         self.move_player(roll, self.current_player)
         print("The category is %s" % self._get_category(self.current_player))
-        self._ask_question()
+        self._ask_question(self.current_player)
 
     def move_player(self, roll, player):
         self.places[player] = self.places[player] + roll
@@ -70,8 +70,8 @@ class Game:
         print(self.players[player] + '\'s new location is ' + \
               str(self.places[player]))
 
-    def _ask_question(self):
-        category = self._get_category(self.current_player)
+    def _ask_question(self, player):
+        category = self._get_category(player)
         if category == 'Pop': print(self.pop_questions.pop(0))
         if category == 'Science': print(self.science_questions.pop(0))
         if category == 'Sports': print(self.sports_questions.pop(0))
