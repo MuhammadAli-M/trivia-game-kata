@@ -46,7 +46,7 @@ class Game:
         print("%s is the current player" % self.players[self.current_player])
         print("They have rolled a %s" % roll)
 
-        if self.in_penalty_box[self.current_player]:
+        if self.is_current_player_in_penalty():
             if roll % 2 == 0:
                 print("%s is not getting out of the penalty box" % self.players[self.current_player])
                 self.is_getting_out_of_penalty_box = False
@@ -90,7 +90,7 @@ class Game:
         return 'Rock'
 
     def was_correctly_answered(self):
-        if self.in_penalty_box[self.current_player]:
+        if self.is_current_player_in_penalty():
             if self.is_getting_out_of_penalty_box:
                 print('Answer was correct!!!!')
                 self.reward_winner(self.current_player)
@@ -114,6 +114,9 @@ class Game:
             self._switch_to_next_player(len(self.players))
 
             return winner
+
+    def is_current_player_in_penalty(self):
+        return self.in_penalty_box[self.current_player]
 
     def reward_winner(self, current_player):
         self.purses[current_player] += 1
