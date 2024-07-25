@@ -85,12 +85,10 @@ class Game:
         if category == 'Rock': print(self.rock_questions.pop(0))
 
     def _get_category(self, player):
-        if self.places[player] in [0, 4, 8]:
-            return 'Pop'
-        if self.places[player] in [1,5,9]:
-            return 'Science'
-        if self.places[player] in [2,6,10]:
-            return 'Sports'
+        place = self.places[player]
+        if place in [0, 4, 8]: return 'Pop'
+        if place in [1, 5, 9]: return 'Science'
+        if place in [2, 6, 10]: return 'Sports'
         return 'Rock'
 
     def was_correctly_answered(self):
