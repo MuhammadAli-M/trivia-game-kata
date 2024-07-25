@@ -51,17 +51,17 @@ class Game:
                 self.is_getting_out_of_penalty_box = True
 
                 print("%s is getting out of the penalty box" % self.players[self.current_player])
-                self.apply_roll(roll)
+                self.apply_roll(roll, self.current_player)
             else:
                 print("%s is not getting out of the penalty box" % self.players[self.current_player])
                 self.is_getting_out_of_penalty_box = False
         else:
-            self.apply_roll(roll)
+            self.apply_roll(roll, self.current_player)
 
-    def apply_roll(self, roll):
-        self.move_player(roll, self.current_player)
-        print("The category is %s" % self._get_category(self.current_player))
-        self._ask_question(self.current_player)
+    def apply_roll(self, roll, player):
+        self.move_player(roll, player)
+        print("The category is %s" % self._get_category(player))
+        self._ask_question(player)
 
     def move_player(self, roll, player):
         self.places[player] = self.places[player] + roll
