@@ -48,20 +48,23 @@ class Game:
 
         if self.is_current_player_in_penalty():
             is_even_roll = roll % 2 == 0
-            if is_even_roll:
-                print("%s is not getting out of the penalty box" % self.players[self.current_player])
-                self.is_getting_out_of_penalty_box = False
-            else:
-                print("%s is getting out of the penalty box" % self.players[
-                    self.current_player])
-                self.is_getting_out_of_penalty_box = True
-
+            self._update_getting_out_of_penalty(is_even_roll)
             if not is_even_roll:
                 self.apply_roll(roll, self.current_player)
 
             return
 
         self.apply_roll(roll, self.current_player)
+
+    def _update_getting_out_of_penalty(self, is_even_roll):
+        if is_even_roll:
+            print("%s is not getting out of the penalty box" % self.players[
+                self.current_player])
+            self.is_getting_out_of_penalty_box = False
+        else:
+            print("%s is getting out of the penalty box" % self.players[
+                self.current_player])
+            self.is_getting_out_of_penalty_box = True
 
     def is_current_player_in_penalty(self):
         return self.is_player_in_penalty(self.current_player)
