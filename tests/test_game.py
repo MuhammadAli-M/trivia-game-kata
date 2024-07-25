@@ -19,3 +19,15 @@ class TestGame(TestCase):
         game.add("Adam")
 
         self.assertEqual(game.how_many_players, 2)
+
+    def test_wrong_answer_sets_player_in_penalty(self):
+        game = Game()
+        game.add('Chet')
+        game.add('Pat')
+        game.add('Sue')
+
+        game.roll(1)
+        player = game.current_player
+        game.wrong_answer()
+
+        self.assertEqual(game.is_player_in_penalty(player), True)
