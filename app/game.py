@@ -100,13 +100,12 @@ class Game:
         return 'Rock'
 
     def was_correctly_answered(self):
-        if self.is_current_player_in_penalty():
-            if not self.is_getting_out_of_penalty_box:
+        if self.is_current_player_in_penalty() and not self.is_getting_out_of_penalty_box:
                 self._switch_to_next_player(len(self.players))
                 return True
-            else:
-                print('Answer was correct!!!!')
-                return self.handle_correct_answer()
+        elif self.is_current_player_in_penalty():
+            print('Answer was correct!!!!')
+            return self.handle_correct_answer()
         else:
             print("Answer was corrent!!!!")
             return self.handle_correct_answer()
