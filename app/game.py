@@ -99,11 +99,11 @@ class Game:
                     ' Gold Coins.')
 
                 winner = self._did_player_win()
-                self.switch_to_next_player(len(self.players))
+                self._switch_to_next_player(len(self.players))
 
                 return winner
             else:
-                self.switch_to_next_player(len(self.players))
+                self._switch_to_next_player(len(self.players))
                 return True
 
 
@@ -118,11 +118,11 @@ class Game:
                 ' Gold Coins.')
 
             winner = self._did_player_win()
-            self.switch_to_next_player(len(self.players))
+            self._switch_to_next_player(len(self.players))
 
             return winner
 
-    def switch_to_next_player(self, players_count):
+    def _switch_to_next_player(self, players_count):
         self.current_player += 1
         if self.current_player == players_count: self.current_player = 0
 
@@ -131,7 +131,7 @@ class Game:
         print(self.players[self.current_player] + " was sent to the penalty box")
         self.in_penalty_box[self.current_player] = True
 
-        self.switch_to_next_player(len(self.players))
+        self._switch_to_next_player(len(self.players))
         return True
 
     def _did_player_win(self):
