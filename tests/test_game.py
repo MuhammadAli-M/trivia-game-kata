@@ -67,3 +67,17 @@ class TestGame(TestCase):
         game.roll(1)
 
         self.assertEqual(game.is_getting_out_of_penalty_box, True)
+
+    def test_roll_2_after_correct_answer_after_wrong_answer_does_not_cancel_penalty(
+            self):
+        game = Game()
+        game.add('Chet')
+        game.add('Pat')
+
+        game.roll(1)
+        game.wrong_answer()
+        game.roll(1)
+        game.was_correctly_answered()
+        game.roll(2)
+
+        self.assertEqual(game.is_getting_out_of_penalty_box, False)
