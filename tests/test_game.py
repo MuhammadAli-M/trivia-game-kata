@@ -31,3 +31,14 @@ class TestGame(TestCase):
         game.wrong_answer()
 
         self.assertEqual(game.is_player_in_penalty(player), True)
+
+    def test_roll_1_after_roll_1_and_wrong_answer_does_not_cancel_penalty(self):
+        game = Game()
+        game.add('Chet')
+        game.add('Pat')
+
+        game.roll(1)
+        game.wrong_answer()
+        game.roll(1)
+
+        self.assertEqual(game.is_getting_out_of_penalty_box, False)
