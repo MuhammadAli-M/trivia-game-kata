@@ -97,9 +97,6 @@ class Game:
                 return True
 
         print("Answer was correct!!!!")
-        return self.does_correct_answer_fulfill_winning()
-
-    def does_correct_answer_fulfill_winning(self):
         self.reward_winner(self.current_player)
         winner = self._did_player_win()
         self._switch_to_next_player(len(self.players))
