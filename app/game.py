@@ -92,11 +92,7 @@ class Game:
         if self.in_penalty_box[self.current_player]:
             if self.is_getting_out_of_penalty_box:
                 print('Answer was correct!!!!')
-                self.purses[self.current_player] += 1
-                print(self.players[self.current_player] + \
-                    ' now has ' + \
-                    str(self.purses[self.current_player]) + \
-                    ' Gold Coins.')
+                self.reward_winner()
 
                 winner = self._did_player_win()
                 self._switch_to_next_player(len(self.players))
@@ -111,16 +107,19 @@ class Game:
         else:
 
             print("Answer was corrent!!!!")
-            self.purses[self.current_player] += 1
-            print(self.players[self.current_player] + \
-                ' now has ' + \
-                str(self.purses[self.current_player]) + \
-                ' Gold Coins.')
+            self.reward_winner()
 
             winner = self._did_player_win()
             self._switch_to_next_player(len(self.players))
 
             return winner
+
+    def reward_winner(self):
+        self.purses[self.current_player] += 1
+        print(self.players[self.current_player] + \
+              ' now has ' + \
+              str(self.purses[self.current_player]) + \
+              ' Gold Coins.')
 
     def _switch_to_next_player(self, players_count):
         self.current_player += 1
