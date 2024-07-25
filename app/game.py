@@ -47,14 +47,14 @@ class Game:
         print("They have rolled a %s" % roll)
 
         if self.in_penalty_box[self.current_player]:
-            if roll % 2 != 0:
+            if roll % 2 == 0:
+                print("%s is not getting out of the penalty box" % self.players[self.current_player])
+                self.is_getting_out_of_penalty_box = False
+            else:
                 self.is_getting_out_of_penalty_box = True
 
                 print("%s is getting out of the penalty box" % self.players[self.current_player])
                 self.apply_roll(roll, self.current_player)
-            else:
-                print("%s is not getting out of the penalty box" % self.players[self.current_player])
-                self.is_getting_out_of_penalty_box = False
         else:
             self.apply_roll(roll, self.current_player)
 
