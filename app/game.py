@@ -46,7 +46,7 @@ class Game:
         print("%s is the current player" % self.players[self.current_player])
         print("They have rolled a %s" % roll)
 
-        if self.is_player_in_penalty(self.current_player):
+        if self.is_current_player_in_penalty():
             if roll % 2 == 0:
                 print("%s is not getting out of the penalty box" % self.players[self.current_player])
                 self.is_getting_out_of_penalty_box = False
@@ -57,6 +57,9 @@ class Game:
                 self.apply_roll(roll, self.current_player)
         else:
             self.apply_roll(roll, self.current_player)
+
+    def is_current_player_in_penalty(self):
+        return self.is_player_in_penalty(self.current_player)
 
     def apply_roll(self, roll, player):
         self.move_player(roll, player)
@@ -90,7 +93,7 @@ class Game:
         return 'Rock'
 
     def was_correctly_answered(self):
-        if self.is_player_in_penalty(self.current_player):
+        if self.is_current_player_in_penalty():
             if self.is_getting_out_of_penalty_box:
                 print('Answer was correct!!!!')
                 self.reward_winner(self.current_player)
