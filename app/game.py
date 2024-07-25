@@ -78,8 +78,7 @@ class Game:
 
     @property
     def _current_category(self):
-        player = self.current_player
-        return self._get_category(player)
+        return self._get_category(self.current_player)
 
     def _get_category(self, player):
         if self.places[player] == 0: return 'Pop'
